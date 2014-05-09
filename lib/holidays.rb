@@ -348,6 +348,14 @@ private
       end
     end
 
+    # Found sub region
+    regions.delete_if do | reg |
+      if reg.to_s =~ /^[a-z]{2}_[a-z]{1,3}$/
+        prefix = reg.to_s.split('_').first.to_sym
+        regions << prefix unless @@regions.include?(prefix)
+      end
+    end
+
     regions.flatten!
 
     require "holidays/north_america" if regions.include?(:us) # special case for north_america/US cross-linking

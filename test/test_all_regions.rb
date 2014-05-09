@@ -50,9 +50,9 @@ class MultipleRegionsTests < Test::Unit::TestCase
     assert regions.include? :nyse
     assert regions.include? :united_nations
   end
-  
+
 private
   def def_count
     Dir.glob(Holidays::DEFINITION_PATH + '/*.rb').size
-  end  
+  end
 end
